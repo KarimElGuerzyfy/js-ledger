@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ledger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="output.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</head>
+<body class="bg-orange-50 dark:bg-gray-900 transition-colors duration-300">
+
+  <header id="site-header" class="dark:border-gray-700 flex justify-between p-4 md:p-10 border-b-3 border-black">
+    <div id="logo-componant" class="flex flex-col">
+        <p class="labels hidden md:block">PERSONAL FINANCE</p>
+        <h1 id="site-logo" class="dark:text-gray-100 font-['Playfair_Display'] text-4xl font-bold">Ledger</h1>
+    </div>
+    <button id="theme-toggle" class="cursor-pointer px-4 text-gray-500 hover:text-teal-700 transition-colors duration-300">
+      <span id="icon-sun" class="hidden"><i class="fa-solid fa-sun text-2xl"></i></span>
+      <span id="icon-moon"><i class="fa-solid fa-moon text-2xl"></i></span>
+    </button>
+    <div id="dollar-componant" class="flex flex-col">
+        <p class="labels hidden md:block">TOTAL SPENT</p>
+        <p id="total" class="font-['IBM_Plex_Mono'] text-4xl font-medium text-teal-700 text-right">$0.00</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto w-full">
+    <section id="add-expense" class="p-4 md:p-10 border-b border-gray-200 dark:border-gray-700">
+        <div id="form" class="flex justify-between flex-wrap gap-3 items-end">
+          <div id="description-div" class="min-w-[45%] md:min-w-0 flex-1">
+            <p class="labels">DESCRIPTION</p>
+            <input type="text" id="expense-name" placeholder="e.g. Coffee" class="w-full h-10 form-input">
+          </div>
+          <div id="amount-div" class="min-w-[45%] md:min-w-0 flex-1">
+              <p class="labels">AMOUNT ($)</p>
+              <input type="number" id="expense-amount" placeholder="0.00" min="0" step="0.1" class="w-full h-10 form-input font-['IBM_Plex_Mono']">
+          </div>
+          <div id="category-div" class="w-full sm:w-auto flex-1">
+              <p class="labels">CATEGORY</p>
+              <select id="category" class="w-full form-select h-10">
+                  <option value="food">🍔 Food</option>
+                  <option value="transport">🚌 Transport</option>
+                  <option value="entertainment">🎬 Entertainment</option>
+                  <option value="shopping">🛍️ Shopping</option>
+                  <option value="health">💊 Health</option>
+                  <option value="bills">📄 Bills</option>
+                  <option value="other">📦 Other</option>
+              </select>
+          </div>
+          <button id="add-btn" class="w-full sm:w-auto btn-add h-10">Add</button>
+        </div>
+        <p id="error-name" class="py-1 hidden">Please enter a description.</p>
+        <p id="error-amount" class="py-1 hidden">Please enter a valid amount greater than 0.</p>
+    </section>
+
+    <section id="expense-filters" class="px-4 py-3 md:px-10 md:py-5 border-b border-gray-200 dark:border-gray-700">
+      <div id="filter-pills" class="flex gap-3 flex-wrap items-center">
+        <i class="fa-solid fa-filter text-gray-400 text-2xl mr-4 dark:text-gray-300"></i>
+        <div class="pill">All</div>
+        <div class="pill">Food</div>
+        <div class="pill">Transport</div>
+        <div class="pill">Entertainment</div>
+        <div class="pill">Shopping</div>
+        <div class="pill">Health</div>
+        <div class="pill">Bills</div>
+        <div class="pill">Other</div>
+      </div>
+    </section>
+
+    <section id="expense-list" class="flex justify-between px-4 pt-4 pb-1 md:px-10 md:pt-8 border-b border-black dark:border-gray-700">
+      <p class="flex-1 md:w-[40%] md:flex-none labels">DESCRIPTION</p>
+      <p class="flex-1 text-center md:text-left md:w-[30%] md:flex-none labels">AMOUNT</p>
+      <p class="hidden md:block md:w-[15%] md:flex-none labels">CATEGORY</p>
+      <p class="flex-1 text-right md:w-[15%] md:flex-none labels">DEL</p>
+    </section>
+    <ul id="expense-list-items"></ul>
+    <div id="empty-state" class="empty-state">
+    <p class="text-5xl opacity-50">📒</p>
+    <p class="text-lg text-gray-400 dark:text-gray-500">No expenses yet. Add one above.</p>
+</div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
