@@ -26,7 +26,7 @@
   </header>
 
   <main class="max-w-5xl mx-auto w-full">
-    <section id="add-expense" class="p-4 md:p-10 border-b border-gray-200 dark:border-gray-700">
+    <section id="add-expense" class="p-4 md:py-10 border-b border-gray-200 dark:border-gray-700">
         <div id="form" class="flex justify-between flex-wrap gap-3 items-end">
           <div id="description-div" class="min-w-[45%] md:min-w-0 flex-1">
             <p class="labels">DESCRIPTION</p>
@@ -50,39 +50,38 @@
           </div>
           <button id="add-btn" class="w-full sm:w-auto btn-add h-10">Add</button>
         </div>
-        <p id="error-name" class="py-1 hidden">Please enter a description.</p>
-        <p id="error-amount" class="py-1 hidden">Please enter a valid amount greater than 0.</p>
+        <p id="error-name" class="py-1 hidden text-red-500">Please enter a description.</p>
+        <p id="error-amount" class="py-1 hidden text-red-500">Please enter a valid amount greater than 0.</p>
     </section>
 
     <section id="expense-filters" class="px-4 py-3 md:px-10 md:py-5 border-b border-gray-200 dark:border-gray-700">
       <div id="filter-pills" class="flex gap-3 flex-wrap items-center">
         <i class="fa-solid fa-filter text-gray-400 text-2xl mr-4 dark:text-gray-300"></i>
-        <div class="pill">All</div>
-        <div class="pill">Food</div>
-        <div class="pill">Transport</div>
-        <div class="pill">Entertainment</div>
-        <div class="pill">Shopping</div>
-        <div class="pill">Health</div>
-        <div class="pill">Bills</div>
-        <div class="pill">Other</div>
+        <div class="pill" data-category="all">All</div>
+        <div class="pill" data-category="food">Food</div>
+        <div class="pill" data-category="transport">Transport</div>
+        <div class="pill" data-category="entertainment">Entertainment</div>
+        <div class="pill" data-category="shopping">Shopping</div>
+        <div class="pill" data-category="health">Health</div>
+        <div class="pill" data-category="bills">Bills</div>
+        <div class="pill" data-category="other">Other</div>
       </div>
     </section>
 
-    <section id="expense-list" class="flex justify-between px-4 pt-4 pb-1 md:px-10 md:pt-8 border-b border-black dark:border-gray-700">
-      <p class="flex-1 md:w-[40%] md:flex-none labels">DESCRIPTION</p>
-      <p class="flex-1 text-center md:text-left md:w-[30%] md:flex-none labels">AMOUNT</p>
-      <p class="hidden md:block md:w-[15%] md:flex-none labels">CATEGORY</p>
-      <p class="flex-1 text-right md:w-[15%] md:flex-none labels">DEL</p>
+    <section id="expense-list-header" class="labels grid grid-cols-3 items-center px-4 md:px-10 border-b border-black dark:border-gray-700 pb-2 pt-8">
+      <p class="text-left font-bold">DESCRIPTION</p>
+      <p class="text-center font-bold">AMOUNT</p>
+      <p class="text-right font-bold">DEL</p>
     </section>
     <ul id="expense-list-items"></ul>
-    <div id="empty-state" class="empty-state">
-    <p class="text-5xl opacity-50">📒</p>
-    <p class="text-lg text-gray-400 dark:text-gray-500">No expenses yet. Add one above.</p>
-</div>
+    <div id="empty-state" class="empty-state hidden">
+      <p class="text-5xl opacity-50">📒</p>
+      <p class="text-lg text-gray-400 dark:text-gray-500">No expenses yet. Add one above.</p>
+    </div>
   </main>
 
   <footer id="site-footer"></footer>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
